@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 // 2. Imports
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./PriceConverter.sol";
+import "hardhat/console.sol";
 
 // 3. Interfaces, Libraries, Contracts
 error FundMe__NotOwner();
@@ -93,15 +94,16 @@ contract FundMe {
     }
 
     /** @notice Gets the amount that an address has funded
-     *  @param fundingAddress the address of the funder
+     *  @param s_funder the address of the funder
      *  @return the amount funded
+     *  view/pure functions
      */
-    function getAddressToAmountFunded(address fundingAddress)
+    function getAddressToAmountFunded(address s_funder)
         public
         view
         returns (uint256)
     {
-        return s_addressToAmountFunded[fundingAddress];
+        return s_addressToAmountFunded[s_funder];
     }
 
     function getVersion() public view returns (uint256) {

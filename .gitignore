@@ -1,20 +1,11 @@
 .encryptedKey.json
 node_modules
 .env
-.env.example
 coverage
 coverage.json
 typechain
-
-# vscode
-.vscode
+deployments
 
 #Hardhat files
 cache
 artifacts
-.DS_Store
-gas-report.txt
-deployments
-
-# Patrick
-.notes.md

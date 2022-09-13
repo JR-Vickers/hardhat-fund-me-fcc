@@ -5,7 +5,8 @@ require("dotenv").config()
 require("solidity-coverage")
 require("hardhat-deploy")
 
-const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || ""
+const COINMARKETCAP_API_KEY =
+    process.env.COINMARKETCAP_API_KEY || "3c042896-aab7-4107-8f0f-be6f5dc92f9f"
 const KOVAN_RPC_URL =
     process.env.KOVAN_RPC_URL ||
     "https://eth-mainnet.alchemyapi.io/v2/your-api-key"
@@ -63,11 +64,12 @@ module.exports = {
         apiKey: ETHERSCAN_API_KEY,
     },
     gasReporter: {
-        enabled: false,
-        currency: "USD",
+        enabled: true,
         outputFile: "gas-report.txt",
         noColors: true,
-        // coinmarketcap: COINMARKETCAP_API_KEY,
+        currency: "USD",
+        coinmarketcap: COINMARKETCAP_API_KEY,
+        token: "ETH",
     },
     namedAccounts: {
         deployer: {
